@@ -130,7 +130,18 @@ namespace Truco
             {
                 if (param.juego.manoNumero == 3 && param.AccionesDisponibles.Contains(Accion.truco))
                 {
-                    accion = Accion.truco;
+                    var rivalCartas = param.juego.logCartas.Where(c => c.jugadorid == param.rival.id).ToList();
+                    var countRival = rivalCartas.Count();
+                    var cartaMasAlta = ObtenerCartaMasAlta(param.misCartas);
+                    if (countRival == 3) {
+                        if (rivalCartas.Last().carta.ranking < cartaMasAlta.ranking) {
+                            accion = Accion.truco;        
+                        }
+                        if (rivalCartas.Last().carta.ranking == cartaMasAlta.ranking && GanePrimerMano(param)) { 
+                            accion = Accion.truco;        
+                        }
+                    }
+                    
                 }
                 else
                 {
@@ -444,6 +455,23 @@ namespace Truco
                 {
                     if (misCartas[i].carta.ranking > rivalCartas[i].carta.ranking)
                     {
+                        return true;
+                    }
+                }
+
+            }
+            return false;
+        }
+
+        private bool GanePrimerMano(Param param)
+        {
+            if (param.juego.logCartas != null && param.juego.logCartas.Count() > 0)
+            {
+                var misCartas = param.juego.logCartas.Where(c => c.jugadorid == param.yo.id).ToList().FirstOrDefault();
+                var rivalCartas = param.juego.logCartas.Where(c => c.jugadorid == param.rival.id).ToList().FirstOrDefault();
+
+                if (misCartas != null && rivalCartas != null) {
+                    if (misCartas.carta.ranking > rivalCartas.carta.ranking) {
                         return true;
                     }
                 }
