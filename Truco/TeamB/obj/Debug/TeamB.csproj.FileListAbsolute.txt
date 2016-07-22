@@ -1,0 +1,42 @@
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\TeamB\bin\Debug\TeamB.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\TeamB\bin\Debug\TeamB.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\TeamB\bin\Debug\Commons.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\TeamB\bin\Debug\Commons.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\TeamB\obj\Debug\TeamB.csprojResolveAssemblyReference.cache
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\TeamB\obj\Debug\TeamB.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\TeamB\obj\Debug\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\TeamB\bin\Debug\TeamB.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\TeamB\bin\Debug\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\TeamB\bin\Debug\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\TeamB\bin\Debug\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\TeamB\obj\Debug\TeamB.csprojResolveAssemblyReference.cache
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\TeamB\obj\Debug\TeamB.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\TeamB\obj\Debug\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamB\obj\Debug\TeamB.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamB\bin\Debug\TeamB.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamB\bin\Debug\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamB\bin\Debug\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamB\bin\Debug\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamB\obj\Debug\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamB\obj\Debug\TeamB.csprojResolveAssemblyReference.cache
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\TeamB\obj\Debug\TeamB.csprojResolveAssemblyReference.cache
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\TeamB\obj\Debug\TeamB.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\TeamB\obj\Debug\TeamB.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\TeamB\bin\Debug\TeamB.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\TeamB\bin\Debug\TeamB.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\TeamB\bin\Debug\Commons.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\TeamB\bin\Debug\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\TeamB\bin\Debug\TeamB.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamB\bin\Debug\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\TeamB\bin\Debug\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamB\bin\Debug\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\TeamB\obj\Debug\TeamB.csprojResolveAssemblyReference.cache
+C:\Users\nano\Dropbox\Oficina\Truco\TeamB\obj\Debug\TeamB.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamB\obj\Debug\TeamB.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\TeamB\bin\Debug\TeamB.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\TeamB\bin\Debug\TeamB.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\TeamB\bin\Debug\Commons.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\TeamB\bin\Debug\Commons.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\TeamB\obj\Debug\TeamB.csprojResolveAssemblyReference.cache
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\TeamB\obj\Debug\TeamB.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\TeamB\obj\Debug\TeamB.pdb

@@ -1,0 +1,131 @@
+c:\users\bpedrazz\documents\visual studio 2013\Projects\Truco\Truco\bin\Debug\Truco.exe.config
+C:\Users\bpedrazz\documents\visual studio 2013\Projects\Truco\Truco\bin\Debug\Truco.exe
+C:\Users\bpedrazz\documents\visual studio 2013\Projects\Truco\Truco\bin\Debug\Truco.pdb
+C:\Users\bpedrazz\documents\visual studio 2013\Projects\Truco\Truco\obj\Debug\Truco.csprojResolveAssemblyReference.cache
+C:\Users\bpedrazz\documents\visual studio 2013\Projects\Truco\Truco\obj\Debug\Truco.Main.resources
+C:\Users\bpedrazz\documents\visual studio 2013\Projects\Truco\Truco\obj\Debug\Truco.Properties.Resources.resources
+C:\Users\bpedrazz\documents\visual studio 2013\Projects\Truco\Truco\obj\Debug\Truco.csproj.GenerateResource.Cache
+C:\Users\bpedrazz\documents\visual studio 2013\Projects\Truco\Truco\obj\Debug\Truco.exe
+C:\Users\bpedrazz\documents\visual studio 2013\Projects\Truco\Truco\obj\Debug\Truco.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\Truco.exe.config
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\obj\Debug\Truco.exe
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\obj\Debug\Truco.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\Truco.exe
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\Truco.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\obj\Debug\Truco.csprojResolveAssemblyReference.cache
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\obj\Debug\Truco.Main.resources
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\obj\Debug\Truco.Properties.Resources.resources
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\obj\Debug\Truco.csproj.GenerateResource.Cache
+C:\Users\nano\Desktop\Truco\Truco\bin\Debug\Truco.exe.config
+C:\Users\nano\Desktop\Truco\Truco\obj\Debug\Truco.exe
+C:\Users\nano\Desktop\Truco\Truco\obj\Debug\Truco.pdb
+C:\Users\nano\Desktop\Truco\Truco\obj\Debug\Truco.csprojResolveAssemblyReference.cache
+C:\Users\nano\Desktop\Truco\Truco\obj\Debug\Truco.Main.resources
+C:\Users\nano\Desktop\Truco\Truco\obj\Debug\Truco.Properties.Resources.resources
+C:\Users\nano\Desktop\Truco\Truco\obj\Debug\Truco.csproj.GenerateResource.Cache
+C:\Users\nano\Desktop\Truco\Truco\bin\Debug\Truco.exe
+C:\Users\nano\Desktop\Truco\Truco\bin\Debug\Truco.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\Commons.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\TeamA.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\Commons.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\TeamA.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\Truco.exe.config
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\Truco.exe
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\Truco.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\TeamA.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\TeamA.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Debug\Truco.csprojResolveAssemblyReference.cache
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Debug\Truco.Main.resources
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Debug\Truco.Properties.Resources.resources
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Debug\Truco.csproj.GenerateResource.Cache
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Debug\Truco.exe
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Debug\Truco.pdb
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\bin\Debug\Truco.exe.config
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\bin\Debug\Truco.exe
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\bin\Debug\Truco.pdb
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\bin\Debug\Commons.dll
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\bin\Debug\TeamA.dll
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\bin\Debug\Commons.pdb
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\bin\Debug\TeamA.pdb
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\obj\Debug\Truco.csprojResolveAssemblyReference.cache
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\obj\Debug\Truco.Main.resources
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\obj\Debug\Truco.Properties.Resources.resources
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\obj\Debug\Truco.csproj.GenerateResource.Cache
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\obj\Debug\Truco.exe
+C:\Users\nano\Documents\Trabajo\SMG\Truco\Truco\obj\Debug\Truco.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\bin\Debug\Truco.exe.config
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\bin\Debug\Truco.exe
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\bin\Debug\Truco.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\bin\Debug\Commons.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\bin\Debug\TeamA.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\bin\Debug\Commons.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\bin\Debug\TeamA.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\obj\Debug\Truco.csprojResolveAssemblyReference.cache
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\obj\Debug\Truco.Main.resources
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\obj\Debug\Truco.Properties.Resources.resources
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\obj\Debug\Truco.csproj.GenerateResource.Cache
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\obj\Debug\Truco.exe
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano\Truco\obj\Debug\Truco.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\obj\Debug\Truco.csprojResolveAssemblyReference.cache
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\obj\Debug\Truco.Main.resources
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\obj\Debug\Truco.Properties.Resources.resources
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\obj\Debug\Truco.csproj.GenerateResource.Cache
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\obj\Debug\Truco.exe
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\bin\Debug\Truco.exe.config
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\bin\Debug\Truco.exe
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\bin\Debug\Truco.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\bin\Debug\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\bin\Debug\TeamA.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\bin\Debug\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\bin\Debug\TeamA.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano\Truco\obj\Debug\Truco.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\Truco.exe.config
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\Truco.exe
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\Truco.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\TeamA.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\TeamA.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Debug\Truco.csprojResolveAssemblyReference.cache
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Debug\Truco.Main.resources
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Debug\Truco.Properties.Resources.resources
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Debug\Truco.csproj.GenerateResource.Cache
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Debug\Truco.exe
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Debug\Truco.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\bin\Debug\Truco.exe.config
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\bin\Debug\Truco.exe
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\bin\Debug\Truco.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\bin\Debug\Commons.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\bin\Debug\TeamA.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\bin\Debug\Commons.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\bin\Debug\TeamA.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\obj\Debug\Truco.csprojResolveAssemblyReference.cache
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\obj\Debug\Truco.Main.resources
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\obj\Debug\Truco.Properties.Resources.resources
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\obj\Debug\Truco.csproj.GenerateResource.Cache
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\obj\Debug\Truco.exe
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\obj\Debug\Truco.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\bin\Debug\TeamB.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco - Nano - ABC\Truco\bin\Debug\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\TeamB.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\TeamC.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\TeamD.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\TeamC.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Debug\TeamD.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\TeamB.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\TeamC.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\TeamD.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\TeamC.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\TeamD.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\TeamB.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\TeamC.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\TeamD.dll
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\TeamB.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\TeamC.pdb
+C:\Users\bpedrazz\Dropbox\Oficina (1)\Truco\Truco\bin\Debug\TeamD.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\TeamGeneric.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Debug\TeamGeneric.pdb

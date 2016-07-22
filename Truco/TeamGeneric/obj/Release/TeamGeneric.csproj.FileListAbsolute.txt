@@ -1,0 +1,6 @@
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\bin\Release\TeamGeneric.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\bin\Release\TeamGeneric.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\bin\Release\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\bin\Release\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\obj\Release\TeamGeneric.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\obj\Release\TeamGeneric.pdb

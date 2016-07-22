@@ -1,0 +1,43 @@
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\Truco.exe.config
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\Truco.exe
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\Truco.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\TeamA.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\TeamB.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\TeamC.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\TeamD.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\TeamA.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\TeamC.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\bin\Release\TeamD.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Release\Truco.csprojResolveAssemblyReference.cache
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Release\Truco.Main.resources
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Release\Truco.Properties.Resources.resources
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Release\Truco.csproj.GenerateResource.Cache
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Release\Truco.exe
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Truco\obj\Release\Truco.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\Truco.exe.config
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Release\Truco.exe
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Release\Truco.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\Truco.exe
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\Truco.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\TeamA.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\TeamB.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\TeamC.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\TeamD.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\TeamA.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\TeamB.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\TeamC.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\TeamD.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Release\Truco.csprojResolveAssemblyReference.cache
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Release\Truco.Main.resources
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Release\Truco.Properties.Resources.resources
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\obj\Release\Truco.csproj.GenerateResource.Cache
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\TeamGeneric.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Truco\bin\Release\TeamGeneric.pdb
+H:\Truco\Truco\bin\Release\Truco.exe.config
+H:\Truco\Truco\obj\Release\Truco.exe
+H:\Truco\Truco\obj\Release\Truco.pdb

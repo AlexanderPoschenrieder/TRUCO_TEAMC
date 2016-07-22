@@ -1,0 +1,6 @@
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\bin\Debug\TeamGeneric.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\bin\Debug\TeamGeneric.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\bin\Debug\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\bin\Debug\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\obj\Debug\TeamGeneric.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamGeneric\obj\Debug\TeamGeneric.pdb

@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{23E53356-5B40-4E62-B2F6-34741AF9EA70}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Truco</RootNamespace>
+    <AssemblyName>Truco</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Croupier.cs" />
+    <Compile Include="Truco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Truco.Designer.cs">
+      <DependentUpon>Truco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Partido.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Truco.resx">
+      <DependentUpon>Truco.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Commons\Commons.csproj">
+      <Project>{94326c62-d2b7-4721-bf5d-5ed94892e78c}</Project>
+      <Name>Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamA\TeamA.csproj">
+      <Project>{719cba3c-0ab2-4618-84da-3c64faeb6d8c}</Project>
+      <Name>TeamA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamB\TeamB.csproj">
+      <Project>{2a9201db-4e53-42be-9dd6-340874473df3}</Project>
+      <Name>TeamB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamC\TeamC.csproj">
+      <Project>{2b6006e9-7800-4496-9e40-c90b69603bf1}</Project>
+      <Name>TeamC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamD\TeamD.csproj">
+      <Project>{9a33ccf7-0e58-48e5-a09b-0e8a6f490662}</Project>
+      <Name>TeamD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TeamGeneric\TeamGeneric.csproj">
+      <Project>{b04aaa54-73e8-4395-aee4-f5e4c3f5ec4c}</Project>
+      <Name>TeamGeneric</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\c12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reverso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\resume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

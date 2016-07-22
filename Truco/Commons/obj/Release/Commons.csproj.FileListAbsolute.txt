@@ -1,0 +1,9 @@
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Commons\bin\Release\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Commons\bin\Release\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Commons\obj\Release\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\Commons\obj\Release\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Commons\bin\Release\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Commons\bin\Release\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Commons\obj\Release\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco\Commons\obj\Release\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\Commons\obj\Release\Commons.csprojResolveAssemblyReference.cache

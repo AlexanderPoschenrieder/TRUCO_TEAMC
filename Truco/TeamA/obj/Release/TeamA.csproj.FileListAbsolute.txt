@@ -1,0 +1,14 @@
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamA\bin\Release\TeamA.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamA\bin\Release\TeamA.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamA\bin\Release\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamA\bin\Release\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamA\obj\Release\TeamA.csprojResolveAssemblyReference.cache
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamA\obj\Release\TeamA.dll
+C:\Users\nano\Dropbox\Oficina\Truco - Nano - ABC\TeamA\obj\Release\TeamA.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\TeamA\bin\Release\TeamA.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamA\bin\Release\TeamA.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\TeamA\bin\Release\Commons.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamA\bin\Release\Commons.pdb
+C:\Users\nano\Dropbox\Oficina\Truco\TeamA\obj\Release\TeamA.csprojResolveAssemblyReference.cache
+C:\Users\nano\Dropbox\Oficina\Truco\TeamA\obj\Release\TeamA.dll
+C:\Users\nano\Dropbox\Oficina\Truco\TeamA\obj\Release\TeamA.pdb
