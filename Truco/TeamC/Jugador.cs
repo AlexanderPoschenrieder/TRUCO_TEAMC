@@ -161,22 +161,26 @@ namespace Truco
         public override Accion CantarEnvido(Param param, int tantos)
         {
             Accion accion = Accion.nulo;
-            if (param.juego.quienEsMano == Quienesmano.Vos)
+
+            if (param.AccionesDisponibles.Contains(Accion.envido) && tantos >= 21 && tantos <= 27)
             {
-                if (param.AccionesDisponibles.Contains(Accion.envido) && tantos >= 21 && tantos <= 27) accion = Accion.envido;
-                if (param.AccionesDisponibles.Contains(Accion.realenvido) && tantos >= 28 && tantos <= 30) accion = Accion.realenvido;
-                if (param.AccionesDisponibles.Contains(Accion.faltaenvido) && tantos >= 31) accion = Accion.faltaenvido;
+                accion = Accion.envido;
             }
+            else if (param.AccionesDisponibles.Contains(Accion.realenvido) && tantos >= 28 && tantos <= 30)
+            {
+                accion = Accion.realenvido;
+            }
+            else if (param.AccionesDisponibles.Contains(Accion.faltaenvido) && tantos >= 31)
+            {
+                accion = Accion.faltaenvido;
+            } 
             else
             {
                 if (param.AccionesDisponibles.Contains(Accion.faltaenvido))
                 {
-                    int yoPuntos = param.rival.puntos;
-                    int rivalPuntos = param.yo.puntos;
-                    bool faltaEnvido = ((yoPuntos < rivalPuntos) && (rivalPuntos - yoPuntos) > 6);
                     Random rn = new Random();
                     int radm = rn.Next(0, 10);
-                    if (faltaEnvido || radm > 4)
+                    if (YaEstoyJugado(param) || radm < 4)
                     {
                         accion = Accion.faltaenvido;
                     }
@@ -184,6 +188,13 @@ namespace Truco
             }
 
             return accion;
+        }
+
+        private bool YaEstoyJugado(Param param)
+        {
+            int yoPuntos = param.yo.puntos;
+            int rivalPuntos = param.rival.puntos;
+            return ((yoPuntos < rivalPuntos) && (rivalPuntos - yoPuntos) > 7);
         }
 
         private Carta JugarCartaPrimeraMano(Param param) { 
