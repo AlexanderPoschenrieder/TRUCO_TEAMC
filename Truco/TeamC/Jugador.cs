@@ -145,14 +145,31 @@ namespace Truco
         {
             Carta carta = null;
 
-            if (SoyManoDeEstaMano(param) && param.juego.manoNumero == 1){
+            if (SoyManoDeEstaMano(param) && param.juego.manoNumero == 1)
+            {
                 carta = JugarCartaPrimeraMano(param);
             }
+            else
+            {
+                // busco el ranking de la ultima carta jugada por mi rival
+                int rankingcartarival = (from j in param.juego.logCartas
+                                         where j.jugadorid == param.rival.id
+                                         select j.carta.ranking).LastOrDefault();
 
-              return carta;
 
-                
+                if (!SoyManoDeEstaMano(param)) // mi rival ya jugo, trato de ganar esta mano
+                {
+                    carta = ObtenerCartaPrimeraGanaRival(param.misCartas, rankingcartarival);
+                    if (carta == null) carta = ObtenerCartaMasBaja(param.misCartas);
+                }
+                else
+                //arranco jugando yo la mano y pongo una carta cualquiera
+                {
+                    carta = ObtenerCartaRandom(param.misCartas);
+                }
             }
+            return carta;
+        }
 
             //// busco el ranking de la ultima carta jugada por mi rival
             //int rankingcartarival = (from j in param.juego.logCartas
