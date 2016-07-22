@@ -15,41 +15,87 @@ namespace Truco
         {
         }
 
+
+        public override Logitem Jugar(Param param)
+        {
+            Accion accion = Accion.nulo;
+            int tantos = param.misCartas.CalcularEnvido();
+
+            // JUEGO ENVIDO
+
+
+            // Puedo o Quiero cantar envido?
+            if (param.AccionesDisponibles.Exists(x => x == Accion.envido || x == Accion.realenvido || x == Accion.faltaenvido))
+            {
+                accion = CantarEnvido(param, tantos);
+                if (accion != Accion.nulo)
+                    return new Logitem(param.yo.id, accion);
+            }
+
+            // Mi rival canto el Envido y tengo que contestar
+            else if (param.AccionesDisponibles.Exists(x => x == Accion.envidoenvido || x == Accion.envidofaltaenvido || x == Accion.envidorealenvido || x == Accion.realenvidofaltaenvido || x == Accion.quiero_tanto))
+            {
+                accion = ContestarEnvido(param, tantos);
+                return new Logitem(param.yo.id, accion);
+            }
+
+
+            // Ahora empezamos con el truco
+            //            if (cantorival == Accion.truco || cantorival == Accion.retruco || cantorival == Accion.valecuatro)
+
+            if (param.AccionesDisponibles.Exists(x => x == Accion.quiero_truco))
+            {  // Mi rival canto algun truco, le contesto
+                accion = ContestarTruco(param);
+                return new Logitem(param.yo.id, accion);
+            }
+
+
+            //  Canto algo?
+            accion = CantarTruco(param);
+            if (accion != Accion.nulo) return new Logitem(param.yo.id, accion);
+
+
+            // Si no canto nada ni tengo nada para contestar, juego la carta
+            accion = Accion.juegacarta;
+            Carta carta = JugarUnaCarta(param);
+
+            return new Logitem(param.yo.id, accion, carta);
+
+        }
+
+
         public override Accion ContestarTruco(Param param)
         {
-            ////var moduloTruco = new ModuloTruco(this);
-            ////return moduloTruco.ContestarTruco(param);
-            //var cartas = param.misCartas;
-            //Accion accion = Accion.noquiero_truco;
-            //Accion cantorival = ObtenerUltimoCantoRival(param);
-
-            //// ranking promedio de mis cartas
-            //int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
-
-            //if (cantorival == Accion.truco && TengoMasDeUnDos(cartas)) { accion = Accion.quiero_truco; }
-            //if (cantorival == Accion.truco && TengoMasDeUnSiete(cartas)) { accion = Accion.retruco; }
-
-            //if (cantorival == Accion.retruco && TengoMasDeUnSiete(cartas)) { accion = Accion.quiero_truco; }
-            //if (cantorival == Accion.retruco && TengoUnAncho(cartas)) { accion = Accion.valecuatro; }
-
-            //if (cantorival == Accion.valecuatro && TengoUnAncho(cartas)) { accion = Accion.quiero_truco; }
-
-            //return accion;
+           
 
             Accion accion = Accion.noquiero_truco;
             Accion cantorival = ObtenerUltimoCantoRival(param);
 
-            // ranking promedio de mis cartas
-            int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
+            if (!YaGaneMano(param))
+            {
+                // ranking promedio de mis cartas
+                int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
 
-            if (cantorival == Accion.truco && rankingpromedio > 15) { accion = Accion.quiero_truco; }
-            if (cantorival == Accion.truco && rankingpromedio > 25) { accion = Accion.retruco; }
+                if (cantorival == Accion.truco && rankingpromedio > 20) { accion = Accion.quiero_truco; }
+                if (cantorival == Accion.truco && rankingpromedio > 25) { accion = Accion.retruco; }
 
-            if (cantorival == Accion.retruco && rankingpromedio > 20) { accion = Accion.quiero_truco; }
-            if (cantorival == Accion.retruco && rankingpromedio > 30) { accion = Accion.valecuatro; }
+                if (cantorival == Accion.retruco && rankingpromedio > 20) { accion = Accion.quiero_truco; }
+                if (cantorival == Accion.retruco && rankingpromedio > 30) { accion = Accion.valecuatro; }
 
-            if (cantorival == Accion.valecuatro && rankingpromedio > 25) { accion = Accion.quiero_truco; }
+                if (cantorival == Accion.valecuatro && rankingpromedio > 25) { accion = Accion.quiero_truco; }
 
+            }
+            else
+            {
+                if (cantorival == Accion.truco && TengoAlMenosUnDos(param.misCartas)) { accion = Accion.quiero_truco; }
+                if (cantorival == Accion.truco && TengoAlMenosUnTres(param.misCartas)) { accion = Accion.retruco; }
+
+                if (cantorival == Accion.retruco && TengoAlMenosUnSiete(param.misCartas)) { accion = Accion.quiero_truco; }
+                if (cantorival == Accion.retruco && TengoUnAncho(param.misCartas)) { accion = Accion.valecuatro; }
+
+                if (cantorival == Accion.valecuatro && TengoAlMenosUnSiete(param.misCartas)) { accion = Accion.quiero_truco; }
+             
+            }
             return accion;
         }
 
@@ -64,14 +110,31 @@ namespace Truco
             //if (param.AccionesDisponibles.Contains(Accion.retruco) && TengoMasDeUnSiete(cartas)) accion = Accion.retruco;
             //if (param.AccionesDisponibles.Contains(Accion.valecuatro) && TengoUnAncho(cartas)) accion = Accion.valecuatro;
             //return accion;
-
             Accion accion = Accion.nulo;
-            // ranking promedio de mis cartas
-            int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
 
-            if (param.AccionesDisponibles.Contains(Accion.truco) && rankingpromedio > 20) accion = Accion.truco;
-            if (param.AccionesDisponibles.Contains(Accion.retruco) && rankingpromedio > 25) accion = Accion.retruco;
-            if (param.AccionesDisponibles.Contains(Accion.valecuatro) && rankingpromedio > 30) accion = Accion.valecuatro;
+            if (!YaGaneMano(param))
+            {
+                // ranking promedio de mis cartas
+                int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
+                if (param.AccionesDisponibles.Contains(Accion.truco) && rankingpromedio > 20) accion = Accion.truco;
+                if (param.AccionesDisponibles.Contains(Accion.retruco) && rankingpromedio > 25) accion = Accion.retruco;
+                if (param.AccionesDisponibles.Contains(Accion.valecuatro) && rankingpromedio > 30) accion = Accion.valecuatro;
+            }
+            else
+            {
+                if (param.juego.manoNumero == 3 && param.AccionesDisponibles.Contains(Accion.truco))
+                {
+                    accion = Accion.truco;
+                }
+                else
+                {
+                    if (param.AccionesDisponibles.Contains(Accion.truco) && TengoAlMenosUnDos(param.misCartas)) accion = Accion.truco;
+                    if (param.AccionesDisponibles.Contains(Accion.retruco) && TengoAlMenosUnSiete(param.misCartas)) accion = Accion.retruco;
+                    if (param.AccionesDisponibles.Contains(Accion.valecuatro) && TengoUnAncho(param.misCartas)) accion = Accion.valecuatro;
+                }
+            }
+           
+            
             return accion;
         }
 
@@ -288,7 +351,7 @@ namespace Truco
 
         private bool TengoUnSiete(MisCartas misCartas)
         {
-            return TengoElAnchoDeEspada(misCartas) || TengoElSieteDeOro(misCartas);
+            return TengoElSieteDeEspadas(misCartas) || TengoElSieteDeOro(misCartas);
         }
 
         private bool TengoElAnchoDeEspada(MisCartas misCartas)
@@ -316,14 +379,52 @@ namespace Truco
             return misCartas.manos.Any(c => !c.yajugada && c.carta.nro == 7 && c.carta.palo == 'O');
         }
 
-        private bool TengoMasDeUnDos(MisCartas misCartas)
+        private bool TengoAlMenosUnDos(MisCartas misCartas)
         {
             return TengoUnAncho(misCartas) || TengoUnSiete(misCartas) || TengoUnTres(misCartas) || TengoUnDos(misCartas);
         }
 
-        private bool TengoMasDeUnSiete(MisCartas misCartas)
+        private bool TengoAlMenosUnTres(MisCartas misCartas)
+        {
+            return TengoUnAncho(misCartas) || TengoUnSiete(misCartas) || TengoUnTres(misCartas) ;
+        }
+
+        private bool TengoAlMenosUnSiete(MisCartas misCartas)
         {
             return TengoUnAncho(misCartas) || TengoUnSiete(misCartas) ;
+        }
+
+        private bool UltimaMano(Param param)
+        {
+            if(param.juego.manoNumero==3)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool YaGaneMano(Param param)
+        {
+            if (param.juego.logCartas !=null && param.juego.logCartas.Count() > 0)
+            {
+                var misCartas = param.juego.logCartas.Where(c => c.jugadorid == param.yo.id).ToList();
+                var rivalCartas = param.juego.logCartas.Where(c => c.jugadorid == param.rival.id).ToList();
+
+                var misCartasCount= misCartas.Count();
+                var rivalCartasCount = rivalCartas.Count();
+                var finalCount= misCartasCount<rivalCartasCount?misCartasCount:rivalCartasCount;
+
+                int i = 0;
+                for (i = 0; i < finalCount;i++ )
+                {
+                    if (misCartas[i].carta.ranking > rivalCartas[i].carta.ranking)
+                    {
+                        return true;
+                    }
+                }
+
+            }
+            return false;
         }
     }
 }
