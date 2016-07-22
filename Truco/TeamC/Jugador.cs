@@ -18,7 +18,7 @@ namespace Truco
 
         public override Accion ContestarTruco(Param param)
         {
-            var moduloTruco = new ModuloTruco();
+            var moduloTruco = new ModuloTruco(this);
             return moduloTruco.ContestarTruco(param);
         }
 
