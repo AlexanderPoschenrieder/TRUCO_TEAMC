@@ -150,7 +150,7 @@ namespace Truco
 
             if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.noquiero_tanto) && tantos >= 25 && tantos <= 28) accion = Accion.noquiero_tanto;
             if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 29 && tantos <= 30) accion = Accion.quiero_tanto;
-            if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 31) accion = Accion.faltaenvido;
+            if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.realenvidofaltaenvido) && tantos >= 31) accion = Accion.realenvidofaltaenvido;
 
             if (cantorival == Accion.faltaenvido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 30) accion = Accion.quiero_tanto;
 
