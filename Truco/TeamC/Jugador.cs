@@ -17,36 +17,61 @@ namespace Truco
 
         public override Accion ContestarTruco(Param param)
         {
-            //var moduloTruco = new ModuloTruco(this);
-            //return moduloTruco.ContestarTruco(param);
-            var cartas = param.misCartas;
+            ////var moduloTruco = new ModuloTruco(this);
+            ////return moduloTruco.ContestarTruco(param);
+            //var cartas = param.misCartas;
+            //Accion accion = Accion.noquiero_truco;
+            //Accion cantorival = ObtenerUltimoCantoRival(param);
+
+            //// ranking promedio de mis cartas
+            //int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
+
+            //if (cantorival == Accion.truco && TengoMasDeUnDos(cartas)) { accion = Accion.quiero_truco; }
+            //if (cantorival == Accion.truco && TengoMasDeUnSiete(cartas)) { accion = Accion.retruco; }
+
+            //if (cantorival == Accion.retruco && TengoMasDeUnSiete(cartas)) { accion = Accion.quiero_truco; }
+            //if (cantorival == Accion.retruco && TengoUnAncho(cartas)) { accion = Accion.valecuatro; }
+
+            //if (cantorival == Accion.valecuatro && TengoUnAncho(cartas)) { accion = Accion.quiero_truco; }
+
+            //return accion;
+
             Accion accion = Accion.noquiero_truco;
             Accion cantorival = ObtenerUltimoCantoRival(param);
 
             // ranking promedio de mis cartas
             int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
 
-            if (cantorival == Accion.truco && TengoMasDeUnDos(cartas)) { accion = Accion.quiero_truco; }
-            if (cantorival == Accion.truco && TengoMasDeUnSiete(cartas)) { accion = Accion.retruco; }
+            if (cantorival == Accion.truco && rankingpromedio > 15) { accion = Accion.quiero_truco; }
+            if (cantorival == Accion.truco && rankingpromedio > 25) { accion = Accion.retruco; }
 
-            if (cantorival == Accion.retruco && TengoMasDeUnSiete(cartas)) { accion = Accion.quiero_truco; }
-            if (cantorival == Accion.retruco && TengoUnAncho(cartas)) { accion = Accion.valecuatro; }
+            if (cantorival == Accion.retruco && rankingpromedio > 20) { accion = Accion.quiero_truco; }
+            if (cantorival == Accion.retruco && rankingpromedio > 30) { accion = Accion.valecuatro; }
 
-            if (cantorival == Accion.valecuatro && TengoUnAncho(cartas)) { accion = Accion.quiero_truco; }
+            if (cantorival == Accion.valecuatro && rankingpromedio > 25) { accion = Accion.quiero_truco; }
 
             return accion;
         }
 
         public override Accion CantarTruco(Param param)
         {
+            //Accion accion = Accion.nulo;
+            //var cartas = param.misCartas;
+            //// ranking promedio de mis cartas
+            //int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
+
+            //if (param.AccionesDisponibles.Contains(Accion.truco) && TengoMasDeUnDos(cartas)) accion = Accion.truco;
+            //if (param.AccionesDisponibles.Contains(Accion.retruco) && TengoMasDeUnSiete(cartas)) accion = Accion.retruco;
+            //if (param.AccionesDisponibles.Contains(Accion.valecuatro) && TengoUnAncho(cartas)) accion = Accion.valecuatro;
+            //return accion;
+
             Accion accion = Accion.nulo;
-            var cartas = param.misCartas;
             // ranking promedio de mis cartas
             int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
 
-            if (param.AccionesDisponibles.Contains(Accion.truco) && TengoMasDeUnDos(cartas)) accion = Accion.truco;
-            if (param.AccionesDisponibles.Contains(Accion.retruco) && TengoMasDeUnSiete(cartas)) accion = Accion.retruco;
-            if (param.AccionesDisponibles.Contains(Accion.valecuatro) && TengoUnAncho(cartas)) accion = Accion.valecuatro;
+            if (param.AccionesDisponibles.Contains(Accion.truco) && rankingpromedio > 20) accion = Accion.truco;
+            if (param.AccionesDisponibles.Contains(Accion.retruco) && rankingpromedio > 25) accion = Accion.retruco;
+            if (param.AccionesDisponibles.Contains(Accion.valecuatro) && rankingpromedio > 30) accion = Accion.valecuatro;
             return accion;
         }
 
