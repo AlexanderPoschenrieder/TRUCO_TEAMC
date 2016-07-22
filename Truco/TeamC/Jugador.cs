@@ -66,10 +66,15 @@ namespace Truco
 
         public override Accion ContestarTruco(Param param)
         {
-           
-
+         
             Accion accion = Accion.noquiero_truco;
             Accion cantorival = ObtenerUltimoCantoRival(param);
+
+
+            if (param.rival.puntos == 29) {
+                if (param.AccionesDisponibles.Contains(Accion.retruco)) return Accion.retruco;
+                if (param.AccionesDisponibles.Contains(Accion.valecuatro)) return Accion.valecuatro;
+            }
 
             if (!YaGaneMano(param))
             {
@@ -87,6 +92,7 @@ namespace Truco
             }
             else
             {
+                if (YaEstoyJugado(param) && cantorival == Accion.truco && TengoAlMenosUnAnchoFalso(param.misCartas)) { return Accion.quiero_truco; }
                 if (cantorival == Accion.truco && TengoAlMenosUnDos(param.misCartas)) { accion = Accion.quiero_truco; }
                 if (cantorival == Accion.truco && TengoAlMenosUnTres(param.misCartas)) { accion = Accion.retruco; }
 
@@ -393,6 +399,16 @@ namespace Truco
             return TengoUnAncho(misCartas) || TengoUnSiete(misCartas) || TengoUnTres(misCartas) || TengoUnDos(misCartas);
         }
 
+        private bool TengoUnAnchoFalso(MisCartas misCartas)
+        {
+            return misCartas.manos.Any(c => !c.yajugada && c.carta.nro == 1 && c.carta.palo != 'B' && c.carta.palo != 'E');
+        }
+
+        private bool TengoAlMenosUnAnchoFalso(MisCartas misCartas)
+        {
+            return TengoUnAncho(misCartas) || TengoUnSiete(misCartas) || TengoUnTres(misCartas) || TengoUnDos(misCartas) || TengoUnAnchoFalso(misCartas);
+        }
+
         private bool TengoAlMenosUnTres(MisCartas misCartas)
         {
             return TengoUnAncho(misCartas) || TengoUnSiete(misCartas) || TengoUnTres(misCartas) ;
@@ -402,7 +418,7 @@ namespace Truco
         {
             return TengoUnAncho(misCartas) || TengoUnSiete(misCartas) ;
         }
-
+            
         private bool UltimaMano(Param param)
         {
             if(param.juego.manoNumero==3)
