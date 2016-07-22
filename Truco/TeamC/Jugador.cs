@@ -65,44 +65,50 @@ namespace Truco
 
 
         public override Accion ContestarTruco(Param param)
-        {
-         
-            Accion accion = Accion.noquiero_truco;
-            Accion cantorival = ObtenerUltimoCantoRival(param);
-
-
-            if (param.rival.puntos == 29) {
-                if (param.AccionesDisponibles.Contains(Accion.retruco)) return Accion.retruco;
-                if (param.AccionesDisponibles.Contains(Accion.valecuatro)) return Accion.valecuatro;
-            }
-
-            if (!YaGaneMano(param))
+        {         
+            try
             {
-                // ranking promedio de mis cartas
-                int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
+                Accion accion = Accion.noquiero_truco;
+                Accion cantorival = ObtenerUltimoCantoRival(param);
 
-                if (cantorival == Accion.truco && rankingpromedio > 20) { accion = Accion.quiero_truco; }
-                if (cantorival == Accion.truco && rankingpromedio > 25) { accion = Accion.retruco; }
+                if (param.rival.puntos == 29)
+                {
+                    if (param.AccionesDisponibles.Contains(Accion.retruco)) return Accion.retruco;
+                    if (param.AccionesDisponibles.Contains(Accion.valecuatro)) return Accion.valecuatro;
+                }
 
-                if (cantorival == Accion.retruco && rankingpromedio > 20) { accion = Accion.quiero_truco; }
-                if (cantorival == Accion.retruco && rankingpromedio > 30) { accion = Accion.valecuatro; }
+                if (!YaGaneMano(param))
+                {
+                    // ranking promedio de mis cartas
+                    int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
 
-                if (cantorival == Accion.valecuatro && rankingpromedio > 25) { accion = Accion.quiero_truco; }
+                    if (cantorival == Accion.truco && rankingpromedio > 20) { accion = Accion.quiero_truco; }
+                    if (cantorival == Accion.truco && rankingpromedio > 25) { accion = Accion.retruco; }
 
+                    if (cantorival == Accion.retruco && rankingpromedio > 20) { accion = Accion.quiero_truco; }
+                    if (cantorival == Accion.retruco && rankingpromedio > 30) { accion = Accion.valecuatro; }
+
+                    if (cantorival == Accion.valecuatro && rankingpromedio > 25) { accion = Accion.quiero_truco; }
+
+                }
+                else
+                {
+                    if (YaEstoyJugado(param) && cantorival == Accion.truco && TengoAlMenosUnAnchoFalso(param.misCartas)) { return Accion.quiero_truco; }
+                    if (cantorival == Accion.truco && TengoAlMenosUnDos(param.misCartas)) { accion = Accion.quiero_truco; }
+                    if (cantorival == Accion.truco && TengoAlMenosUnTres(param.misCartas)) { accion = Accion.retruco; }
+
+                    if (cantorival == Accion.retruco && TengoAlMenosUnSiete(param.misCartas)) { accion = Accion.quiero_truco; }
+                    if (cantorival == Accion.retruco && TengoUnAncho(param.misCartas)) { accion = Accion.valecuatro; }
+
+                    if (cantorival == Accion.valecuatro && TengoAlMenosUnSiete(param.misCartas)) { accion = Accion.quiero_truco; }
+
+                }
+                return accion;
             }
-            else
+            catch (Exception ex)
             {
-                if (YaEstoyJugado(param) && cantorival == Accion.truco && TengoAlMenosUnAnchoFalso(param.misCartas)) { return Accion.quiero_truco; }
-                if (cantorival == Accion.truco && TengoAlMenosUnDos(param.misCartas)) { accion = Accion.quiero_truco; }
-                if (cantorival == Accion.truco && TengoAlMenosUnTres(param.misCartas)) { accion = Accion.retruco; }
-
-                if (cantorival == Accion.retruco && TengoAlMenosUnSiete(param.misCartas)) { accion = Accion.quiero_truco; }
-                if (cantorival == Accion.retruco && TengoUnAncho(param.misCartas)) { accion = Accion.valecuatro; }
-
-                if (cantorival == Accion.valecuatro && TengoAlMenosUnSiete(param.misCartas)) { accion = Accion.quiero_truco; }
-             
-            }
-            return accion;
+                return param.AccionesDisponibles.FirstOrDefault();
+            }            
         }
 
         public override Accion CantarTruco(Param param)
@@ -116,99 +122,123 @@ namespace Truco
             //if (param.AccionesDisponibles.Contains(Accion.retruco) && TengoMasDeUnSiete(cartas)) accion = Accion.retruco;
             //if (param.AccionesDisponibles.Contains(Accion.valecuatro) && TengoUnAncho(cartas)) accion = Accion.valecuatro;
             //return accion;
-            Accion accion = Accion.nulo;
 
-            if (!YaGaneMano(param))
+            try
             {
-                // ranking promedio de mis cartas
-                int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
-                if (param.AccionesDisponibles.Contains(Accion.truco) && rankingpromedio > 20) accion = Accion.truco;
-                if (param.AccionesDisponibles.Contains(Accion.retruco) && rankingpromedio > 25) accion = Accion.retruco;
-                if (param.AccionesDisponibles.Contains(Accion.valecuatro) && rankingpromedio > 30) accion = Accion.valecuatro;
-            }
-            else
-            {
-                if (param.juego.manoNumero == 3 && param.AccionesDisponibles.Contains(Accion.truco))
+                Accion accion = Accion.nulo;
+
+                if (!YaGaneMano(param))
                 {
-                    var rivalCartas = param.juego.logCartas.Where(c => c.jugadorid == param.rival.id).ToList();
-                    var countRival = rivalCartas.Count();
-                    var cartaMasAlta = ObtenerCartaMasAlta(param.misCartas);
-                    if (countRival == 3) {
-                        if (rivalCartas.Last().carta.ranking < cartaMasAlta.ranking) {
-                            accion = Accion.truco;        
-                        }
-                        if (rivalCartas.Last().carta.ranking == cartaMasAlta.ranking && GanePrimerMano(param)) { 
-                            accion = Accion.truco;        
-                        }
-                    }
-                    
+                    // ranking promedio de mis cartas
+                    int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
+                    if (param.AccionesDisponibles.Contains(Accion.truco) && rankingpromedio > 20) accion = Accion.truco;
+                    if (param.AccionesDisponibles.Contains(Accion.retruco) && rankingpromedio > 25) accion = Accion.retruco;
+                    if (param.AccionesDisponibles.Contains(Accion.valecuatro) && rankingpromedio > 30) accion = Accion.valecuatro;
                 }
                 else
                 {
-                    if (param.AccionesDisponibles.Contains(Accion.truco) && TengoAlMenosUnDos(param.misCartas)) accion = Accion.truco;
-                    if (param.AccionesDisponibles.Contains(Accion.retruco) && TengoAlMenosUnSiete(param.misCartas)) accion = Accion.retruco;
-                    if (param.AccionesDisponibles.Contains(Accion.valecuatro) && TengoUnAncho(param.misCartas)) accion = Accion.valecuatro;
+                    if (param.juego.manoNumero == 3 && param.AccionesDisponibles.Contains(Accion.truco))
+                    {
+                        var rivalCartas = param.juego.logCartas.Where(c => c.jugadorid == param.rival.id).ToList();
+                        var countRival = rivalCartas.Count();
+                        var cartaMasAlta = ObtenerCartaMasAlta(param.misCartas);
+                        if (countRival == 3)
+                        {
+                            if (rivalCartas.Last().carta.ranking < cartaMasAlta.ranking)
+                            {
+                                accion = Accion.truco;
+                            }
+                            if (rivalCartas.Last().carta.ranking == cartaMasAlta.ranking && GanePrimerMano(param))
+                            {
+                                accion = Accion.truco;
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        if (param.AccionesDisponibles.Contains(Accion.truco) && TengoAlMenosUnDos(param.misCartas)) accion = Accion.truco;
+                        if (param.AccionesDisponibles.Contains(Accion.retruco) && TengoAlMenosUnSiete(param.misCartas)) accion = Accion.retruco;
+                        if (param.AccionesDisponibles.Contains(Accion.valecuatro) && TengoUnAncho(param.misCartas)) accion = Accion.valecuatro;
+                    }
                 }
+
+                return accion;
             }
-           
-            
-            return accion;
+            catch (Exception ex)
+            {
+                return param.AccionesDisponibles.FirstOrDefault();
+            }            
         }
 
         public override Accion ContestarEnvido(Param param, int tantos)
         {
-            Accion accion = Accion.noquiero_tanto;
-            Accion cantorival = ObtenerUltimoCantoRival(param);
-
-            if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.noquiero_tanto) && tantos <= 23) accion = Accion.noquiero_tanto;
-            if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 24 && tantos <= 28) accion = Accion.quiero_tanto;
-            if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.envidoenvido) && (tantos == 29 || tantos == 30)) accion = Accion.envidoenvido;
-            if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.realenvido) && tantos > 30) accion = Accion.realenvido;
-
-            if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.noquiero_tanto) && tantos >= 25 && tantos <= 28) accion = Accion.noquiero_tanto;
-            if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 29 && tantos <= 30) accion = Accion.quiero_tanto;
-            if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.realenvidofaltaenvido) && tantos >= 31) accion = Accion.realenvidofaltaenvido;
-
-            if (cantorival == Accion.faltaenvido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 30) accion = Accion.quiero_tanto;
-
-            if (param.rival.puntos >= 29 && param.AccionesDisponibles.Contains(Accion.quiero_tanto))
+            try
             {
-                accion = Accion.quiero_tanto;
+                Accion accion = Accion.noquiero_tanto;
+                Accion cantorival = ObtenerUltimoCantoRival(param);
+
+                if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.noquiero_tanto) && tantos <= 23) accion = Accion.noquiero_tanto;
+                if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 24 && tantos <= 28) accion = Accion.quiero_tanto;
+                if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.envidoenvido) && (tantos == 29 || tantos == 30)) accion = Accion.envidoenvido;
+                if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.realenvido) && tantos > 30) accion = Accion.realenvido;
+
+                if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.noquiero_tanto) && tantos >= 25 && tantos <= 28) accion = Accion.noquiero_tanto;
+                if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 29 && tantos <= 30) accion = Accion.quiero_tanto;
+                if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.realenvidofaltaenvido) && tantos >= 31) accion = Accion.realenvidofaltaenvido;
+
+                if (cantorival == Accion.faltaenvido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 30) accion = Accion.quiero_tanto;
+
+                if (param.rival.puntos >= 29 && param.AccionesDisponibles.Contains(Accion.quiero_tanto))
+                {
+                    accion = Accion.quiero_tanto;
+                }
+
+                return accion;
             }
-                        
-            return accion;
+            catch (Exception ex)
+            {
+                return param.AccionesDisponibles.FirstOrDefault();
+            }            
         }
 
         public override Accion CantarEnvido(Param param, int tantos)
         {
-            Accion accion = Accion.nulo;
+            try
+            {
+                Accion accion = Accion.nulo;
 
-            if (param.AccionesDisponibles.Contains(Accion.envido) && tantos >= 21 && tantos <= 27)
-            {
-                accion = Accion.envido;
-            }
-            else if (param.AccionesDisponibles.Contains(Accion.realenvido) && tantos >= 28 && tantos <= 30)
-            {
-                accion = Accion.realenvido;
-            }
-            else if (param.AccionesDisponibles.Contains(Accion.faltaenvido) && tantos >= 31)
-            {
-                accion = Accion.faltaenvido;
-            } 
-            else
-            {
-                if (param.AccionesDisponibles.Contains(Accion.faltaenvido))
+                if (param.AccionesDisponibles.Contains(Accion.envido) && tantos >= 21 && tantos <= 27)
                 {
-                    Random rn = new Random();
-                    int radm = rn.Next(0, 10);
-                    if (YaEstoyJugado(param) || radm < 4)
+                    accion = Accion.envido;
+                }
+                else if (param.AccionesDisponibles.Contains(Accion.realenvido) && tantos >= 28 && tantos <= 30)
+                {
+                    accion = Accion.realenvido;
+                }
+                else if (param.AccionesDisponibles.Contains(Accion.faltaenvido) && tantos >= 31)
+                {
+                    accion = Accion.faltaenvido;
+                }
+                else
+                {
+                    if (param.AccionesDisponibles.Contains(Accion.faltaenvido))
                     {
-                        accion = Accion.faltaenvido;
+                        Random rn = new Random();
+                        int radm = rn.Next(0, 10);
+                        if (YaEstoyJugado(param) || radm < 4)
+                        {
+                            accion = Accion.faltaenvido;
+                        }
                     }
                 }
-            }
 
-            return accion;
+                return accion;
+            }
+            catch (Exception ex)
+            {
+                return param.AccionesDisponibles.FirstOrDefault();
+            }            
         }
 
         private bool YaEstoyJugado(Param param)
