@@ -26,13 +26,13 @@ namespace Truco
             // ranking promedio de mis cartas
             int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
 
-            if (cantorival == Accion.truco && TengoMasDeUnDos(cartas)) { accion = Accion.quiero_truco; }
-            if (cantorival == Accion.truco && TengoMasDeUnSiete(cartas)) { accion = Accion.retruco; }
+            if (cantorival == Accion.truco && rankingpromedio > 15) { accion = Accion.quiero_truco; }
+            if (cantorival == Accion.truco && rankingpromedio > 25) { accion = Accion.retruco; }
 
-            if (cantorival == Accion.retruco && TengoMasDeUnSiete(cartas)) { accion = Accion.quiero_truco; }
-            if (cantorival == Accion.retruco && TengoUnAncho(cartas)) { accion = Accion.valecuatro; }
+            if (cantorival == Accion.retruco && rankingpromedio > 20) { accion = Accion.quiero_truco; }
+            if (cantorival == Accion.retruco && rankingpromedio > 30) { accion = Accion.valecuatro; }
 
-            if (cantorival == Accion.valecuatro && TengoUnAncho(cartas)) { accion = Accion.quiero_truco; }
+            if (cantorival == Accion.valecuatro && rankingpromedio > 25) { accion = Accion.quiero_truco; }
 
             return accion;
         }
@@ -81,6 +81,10 @@ namespace Truco
                 if (param.AccionesDisponibles.Contains(Accion.envido) && tantos >= 25 && tantos <= 29) accion = Accion.envido;
                 if (param.AccionesDisponibles.Contains(Accion.realenvido) && tantos >= 29) accion = Accion.realenvido;
                 //if (param.AccionesDisponibles.Contains(Accion.faltaenvido) && tantos > 30) accion = Accion.faltaenvido;
+            }
+            else
+            {
+                if (param.AccionesDisponibles.Contains(Accion.envido) && tantos >= 29) accion = Accion.envido;
             }
 
             return accion;
@@ -237,7 +241,7 @@ namespace Truco
 
         private bool TengoUnSiete(MisCartas misCartas)
         {
-            return TengoElSieteDeEspadas(misCartas) || TengoElSieteDeOro(misCartas);
+            return TengoElAnchoDeEspada(misCartas) || TengoElSieteDeOro(misCartas);
         }
 
         private bool TengoElAnchoDeEspada(MisCartas misCartas)
@@ -274,14 +278,5 @@ namespace Truco
         {
             return TengoUnAncho(misCartas) || TengoUnSiete(misCartas) ;
         }
-
-        #region Predictor
-
-        public void PredecirCarta()
-        {
-            
-        }
-
-        #endregion
     }
 }
