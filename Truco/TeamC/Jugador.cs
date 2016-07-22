@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Diagnostics;
-using TeamC;
 
 namespace Truco
 {
@@ -18,13 +17,37 @@ namespace Truco
 
         public override Accion ContestarTruco(Param param)
         {
-            var moduloTruco = new ModuloTruco(this);
-            return moduloTruco.ContestarTruco(param);
+            //var moduloTruco = new ModuloTruco(this);
+            //return moduloTruco.ContestarTruco(param);
+            var cartas = param.misCartas;
+            Accion accion = Accion.noquiero_truco;
+            Accion cantorival = ObtenerUltimoCantoRival(param);
+
+            // ranking promedio de mis cartas
+            int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
+
+            if (cantorival == Accion.truco && rankingpromedio > 15) { accion = Accion.quiero_truco; }
+            if (cantorival == Accion.truco && rankingpromedio > 25) { accion = Accion.retruco; }
+
+            if (cantorival == Accion.retruco && rankingpromedio > 20) { accion = Accion.quiero_truco; }
+            if (cantorival == Accion.retruco && rankingpromedio > 30) { accion = Accion.valecuatro; }
+
+            if (cantorival == Accion.valecuatro && rankingpromedio > 25) { accion = Accion.quiero_truco; }
+
+            return accion;
         }
 
         public override Accion CantarTruco(Param param)
         {
-            return Accion.truco;
+            Accion accion = Accion.nulo;
+            var cartas = param.misCartas;
+            // ranking promedio de mis cartas
+            int rankingpromedio = Convert.ToInt32(param.misCartas.manos.Average(a => a.carta.ranking));
+
+            if (param.AccionesDisponibles.Contains(Accion.truco) && TengoMasDeUnDos(cartas)) accion = Accion.truco;
+            if (param.AccionesDisponibles.Contains(Accion.retruco) && TengoMasDeUnSiete(cartas)) accion = Accion.retruco;
+            if (param.AccionesDisponibles.Contains(Accion.valecuatro) && TengoUnAncho(cartas)) accion = Accion.valecuatro;
+            return accion;
         }
 
         public override Accion ContestarEnvido(Param param, int tantos)
@@ -155,6 +178,14 @@ namespace Truco
             return misCartas.manos.Any(c => !c.yajugada && c.carta.nro == 7 && c.carta.palo == 'O');
         }
 
-        
+        private bool TengoMasDeUnDos(MisCartas misCartas)
+        {
+            return TengoUnAncho(misCartas) || TengoUnSiete(misCartas) || TengoUnTres(misCartas) || TengoUnDos(misCartas);
+        }
+
+        private bool TengoMasDeUnSiete(MisCartas misCartas)
+        {
+            return TengoUnAncho(misCartas) || TengoUnSiete(misCartas) ;
+        }
     }
 }
