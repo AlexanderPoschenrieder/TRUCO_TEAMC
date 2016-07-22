@@ -63,23 +63,93 @@ namespace Truco
             return accion;
         }
 
+        private Carta JugarCartaPrimeraMano(Param param) { 
+            Carta carta = null;
+            
+         
+            if (NoTengoNada(param.misCartas))
+            {
+                carta = carta = ObtenerCartaMasAlta(param.misCartas); 
+            }
+            else
+            {
+                if (TengoUnSiete(param.misCartas))
+                {
+                    if (TengoUnAncho(param.misCartas))
+                    {
+                        var paloDelSiete = 'E';
+                        if (!TengoElSieteDeEspadas(param.misCartas))
+                            paloDelSiete = 'O';
+
+                        carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 7 && c.carta.palo == paloDelSiete).FirstOrDefault().carta;
+                    }
+
+                    if (TengoUnTres(param.misCartas))
+                    {
+                        if (TengoElSieteDeEspadas(param.misCartas))
+                        {
+                            carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 3).FirstOrDefault().carta;
+                        }
+                        else
+                        {
+                            carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 7 && c.carta.palo == 'O').FirstOrDefault().carta;
+                        }
+                    }
+
+                    else
+                    {
+                        var paloDelSiete = 'E';
+                        if (!TengoElSieteDeEspadas(param.misCartas))
+                            paloDelSiete = 'O';
+
+                        carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 7 && c.carta.palo == paloDelSiete).FirstOrDefault().carta;
+
+                    }
+                }
+                else {
+
+                    if (TengoUnAncho(param.misCartas))
+                    {
+                        if (TengoUnTres(param.misCartas))
+                        {
+                            carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 3).FirstOrDefault().carta;
+                        }
+                        else if (TengoUnDos(param.misCartas))
+                        {
+                            carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 2).FirstOrDefault().carta;
+                        }
+                        else
+                        {
+                            var paloAncho = 'E';
+
+                            if (!TengoElAnchoDeEspada(param.misCartas))
+                            {
+                                paloAncho = 'B';
+                            }
+
+                            carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 1 && c.carta.palo == paloAncho).FirstOrDefault().carta;
+                        }
+                    }
+
+                    else {
+                        carta = ObtenerCartaMasAlta(param.misCartas);
+                    }
+                }
+
+
+                }
+            return carta;
+        }
+
           public override Carta JugarUnaCarta(Param param)
         {
             Carta carta = null;
 
-            if (SoyManoDeEstaMano(param) && param.juego.manoNumero == 1)
-            {
-                if (TengoUnSiete(param.misCartas)) {
-                    //if(TengoUnAncho(param.misCartas) && )
+            if (SoyManoDeEstaMano(param) && param.juego.manoNumero == 1){
+                carta = JugarCartaPrimeraMano(param);
+            }
 
-                    if (TengoUnTres(param.misCartas)) {
-                        carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 3).FirstOrDefault().carta;
-                    }
-
-                    if (TengoUnDos(param.misCartas)) { 
-                    
-                    }
-                }
+              return carta;
 
                 
             }
@@ -101,8 +171,8 @@ namespace Truco
             //    carta = ObtenerCartaRandom(param.misCartas);
             //}
 
-            return carta;
-        }
+        
+        
 
 
         private bool NoTengoNada(MisCartas misCartas)
