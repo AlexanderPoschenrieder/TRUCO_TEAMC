@@ -177,12 +177,9 @@ namespace Truco
             {
                 if (param.AccionesDisponibles.Contains(Accion.faltaenvido))
                 {
-                    int yoPuntos = param.rival.puntos;
-                    int rivalPuntos = param.yo.puntos;
-                    bool faltaEnvido = ((yoPuntos < rivalPuntos) && (rivalPuntos - yoPuntos) > 6);
                     Random rn = new Random();
                     int radm = rn.Next(0, 10);
-                    if (faltaEnvido || radm < 4)
+                    if (YaEstoyJugado(param) || radm < 4)
                     {
                         accion = Accion.faltaenvido;
                     }
@@ -190,6 +187,13 @@ namespace Truco
             }
 
             return accion;
+        }
+
+        private bool YaEstoyJugado(Param param)
+        {
+            int yoPuntos = param.yo.puntos;
+            int rivalPuntos = param.rival.puntos;
+            return ((yoPuntos < rivalPuntos) && (rivalPuntos - yoPuntos) > 7);
         }
 
         private Carta JugarCartaPrimeraMano(Param param) { 
