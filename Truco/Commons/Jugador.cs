@@ -28,9 +28,48 @@ namespace Truco
 
         public virtual Logitem Jugar(Param param)
         {
+            Accion accion = Accion.nulo;
+            int tantos = param.misCartas.CalcularEnvido();
 
-            throw new NotImplementedException("Jugar no implementado");
+            // JUEGO ENVIDO
 
+
+            // Puedo o Quiero cantar envido?
+            if (param.AccionesDisponibles.Exists(x => x == Accion.envido || x == Accion.realenvido || x == Accion.faltaenvido))
+            {
+                accion = CantarEnvido(param, tantos);
+                if (accion != Accion.nulo)
+                    return new Logitem(param.yo.id, accion);
+            }
+
+            // Mi rival canto el Envido y tengo que contestar
+            else if (param.AccionesDisponibles.Exists(x => x == Accion.envidoenvido || x == Accion.envidofaltaenvido || x == Accion.envidorealenvido || x == Accion.realenvidofaltaenvido || x == Accion.quiero_tanto))
+            {
+                accion = ContestarEnvido(param, tantos);
+                return new Logitem(param.yo.id, accion);
+            }
+
+
+            // Ahora empezamos con el truco
+            //            if (cantorival == Accion.truco || cantorival == Accion.retruco || cantorival == Accion.valecuatro)
+
+            if (param.AccionesDisponibles.Exists(x => x == Accion.quiero_truco))
+            {  // Mi rival canto algun truco, le contesto
+                accion = ContestarTruco(param);
+                return new Logitem(param.yo.id, accion);
+            }
+
+
+            //  Canto algo?
+            accion = CantarTruco(param);
+            if (accion != Accion.nulo) return new Logitem(param.yo.id, accion);
+
+
+            // Si no canto nada ni tengo nada para contestar, juego la carta
+            accion = Accion.juegacarta;
+            Carta carta = JugarUnaCarta(param);
+
+            return new Logitem(param.yo.id, accion, carta);
         }
 
         public virtual Accion CantarEnvido(Param param, int tantos)
