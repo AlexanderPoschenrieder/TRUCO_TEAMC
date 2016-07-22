@@ -55,54 +55,124 @@ namespace Truco
             Accion accion = Accion.noquiero_tanto;
             Accion cantorival = ObtenerUltimoCantoRival(param);
 
-            if (param.juego.quienEsMano == Quienesmano.Rival)
-            {
-                if (cantorival == Accion.envido && tantos <= 25) accion = Accion.noquiero_tanto;
-                if (cantorival == Accion.envido && tantos >= 26 && tantos <= 28) accion = Accion.quiero_tanto;
-                if (cantorival == Accion.envido && (tantos == 29 || tantos == 30)) accion = Accion.envidoenvido;
-                if (cantorival == Accion.envido && tantos > 30) accion = Accion.realenvido;
+            if (cantorival == Accion.envido && tantos <= 25) accion = Accion.noquiero_tanto;
+            if (cantorival == Accion.envido && tantos >= 26 && tantos <= 28) accion = Accion.quiero_tanto;
+            if (cantorival == Accion.envido && (tantos == 29 || tantos == 30)) accion = Accion.envidoenvido;
+            if (cantorival == Accion.envido && tantos > 30) accion = Accion.realenvido;
 
-                if (cantorival == Accion.realenvido && tantos >= 25 && tantos >= 28) accion = Accion.quiero_tanto;
-                if (cantorival == Accion.realenvido && tantos >= 19) accion = Accion.quiero_tanto;
+            if (cantorival == Accion.realenvido && tantos >= 25 && tantos >= 28) accion = Accion.quiero_tanto;
+            if (cantorival == Accion.realenvido && tantos >= 19) accion = Accion.quiero_tanto;
 
-                //if (cantorival == Accion.faltaenvido && tantos > 30) accion = Accion.quiero_tanto;
+            if (cantorival == Accion.faltaenvido) accion = Accion.noquiero_tanto;
 
-                //if (cantorival == Accion.envidoenvido && tantos > 28) accion = Accion.quiero_tanto;
-                //if (cantorival == Accion.envidorealenvido && tantos > 29) accion = Accion.quiero_tanto;
-                //if (cantorival == Accion.envidofaltaenvido && tantos > 30) accion = Accion.quiero_tanto;
-                //if (cantorival == Accion.realenvidofaltaenvido && tantos > 30) accion = Accion.quiero_tanto;
-            }
-
+            //if (cantorival == Accion.envidoenvido && tantos > 28) accion = Accion.quiero_tanto;
+            //if (cantorival == Accion.envidorealenvido && tantos > 29) accion = Accion.quiero_tanto;
+            //if (cantorival == Accion.envidofaltaenvido && tantos > 30) accion = Accion.quiero_tanto;
+            //if (cantorival == Accion.realenvidofaltaenvido && tantos > 30) accion = Accion.quiero_tanto;
+            
             return accion;
         }
 
         public override Accion CantarEnvido(Param param, int tantos)
         {
             Accion accion = Accion.nulo;
-            if (param.AccionesDisponibles.Contains(Accion.envido) && tantos >= 25 && tantos <= 29) accion = Accion.envido;
-            if (param.AccionesDisponibles.Contains(Accion.realenvido) && tantos >= 29) accion = Accion.realenvido;
-            //if (param.AccionesDisponibles.Contains(Accion.faltaenvido) && tantos > 30) accion = Accion.faltaenvido;
+            if (param.juego.quienEsMano == Quienesmano.Vos)
+            {
+                if (param.AccionesDisponibles.Contains(Accion.envido) && tantos >= 25 && tantos <= 29) accion = Accion.envido;
+                if (param.AccionesDisponibles.Contains(Accion.realenvido) && tantos >= 29) accion = Accion.realenvido;
+                //if (param.AccionesDisponibles.Contains(Accion.faltaenvido) && tantos > 30) accion = Accion.faltaenvido;
+            }
 
             return accion;
+        }
+
+        private Carta JugarCartaPrimeraMano(Param param) { 
+            Carta carta = null;
+            
+         
+            if (NoTengoNada(param.misCartas))
+            {
+                carta = carta = ObtenerCartaMasAlta(param.misCartas); 
+            }
+            else
+            {
+                if (TengoUnSiete(param.misCartas))
+                {
+                    if (TengoUnAncho(param.misCartas))
+                    {
+                        var paloDelSiete = 'E';
+                        if (!TengoElSieteDeEspadas(param.misCartas))
+                            paloDelSiete = 'O';
+
+                        carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 7 && c.carta.palo == paloDelSiete).FirstOrDefault().carta;
+                    }
+
+                    if (TengoUnTres(param.misCartas))
+                    {
+                        if (TengoElSieteDeEspadas(param.misCartas))
+                        {
+                            carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 3).FirstOrDefault().carta;
+                        }
+                        else
+                        {
+                            carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 7 && c.carta.palo == 'O').FirstOrDefault().carta;
+                        }
+                    }
+
+                    else
+                    {
+                        var paloDelSiete = 'E';
+                        if (!TengoElSieteDeEspadas(param.misCartas))
+                            paloDelSiete = 'O';
+
+                        carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 7 && c.carta.palo == paloDelSiete).FirstOrDefault().carta;
+
+                    }
+                }
+                else {
+
+                    if (TengoUnAncho(param.misCartas))
+                    {
+                        if (TengoUnTres(param.misCartas))
+                        {
+                            carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 3).FirstOrDefault().carta;
+                        }
+                        else if (TengoUnDos(param.misCartas))
+                        {
+                            carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 2).FirstOrDefault().carta;
+                        }
+                        else
+                        {
+                            var paloAncho = 'E';
+
+                            if (!TengoElAnchoDeEspada(param.misCartas))
+                            {
+                                paloAncho = 'B';
+                            }
+
+                            carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 1 && c.carta.palo == paloAncho).FirstOrDefault().carta;
+                        }
+                    }
+
+                    else {
+                        carta = ObtenerCartaMasAlta(param.misCartas);
+                    }
+                }
+
+
+                }
+            return carta;
         }
 
           public override Carta JugarUnaCarta(Param param)
         {
             Carta carta = null;
 
-            if (SoyManoDeEstaMano(param) && param.juego.manoNumero == 1)
-            {
-                if (TengoUnSiete(param.misCartas)) {
-                    //if(TengoUnAncho(param.misCartas) && )
+            if (SoyManoDeEstaMano(param) && param.juego.manoNumero == 1){
+                carta = JugarCartaPrimeraMano(param);
+            }
 
-                    if (TengoUnTres(param.misCartas)) {
-                        carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 3).FirstOrDefault().carta;
-                    }
-
-                    if (TengoUnDos(param.misCartas)) { 
-                    
-                    }
-                }
+              return carta;
 
                 
             }
@@ -124,8 +194,8 @@ namespace Truco
             //    carta = ObtenerCartaRandom(param.misCartas);
             //}
 
-            return carta;
-        }
+        
+        
 
 
         private bool NoTengoNada(MisCartas misCartas)
