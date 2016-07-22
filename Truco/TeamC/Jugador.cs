@@ -159,6 +159,11 @@ namespace Truco
             if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 31) accion = Accion.faltaenvido;
 
             if (cantorival == Accion.faltaenvido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 30) accion = Accion.quiero_tanto;
+
+            if (param.rival.puntos >= 29 && param.AccionesDisponibles.Contains(Accion.quiero_tanto))
+            {
+                accion = Accion.quiero_tanto;
+            }
                         
             return accion;
         }
