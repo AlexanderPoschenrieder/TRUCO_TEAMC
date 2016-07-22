@@ -55,15 +55,18 @@ namespace Truco
             Accion accion = Accion.noquiero_tanto;
             Accion cantorival = ObtenerUltimoCantoRival(param);
 
-            if (cantorival == Accion.envido && tantos <= 25) accion = Accion.noquiero_tanto;
-            if (cantorival == Accion.envido && tantos >= 26 && tantos <= 28) accion = Accion.quiero_tanto;
-            if (cantorival == Accion.envido && (tantos == 29 || tantos == 30)) accion = Accion.envidoenvido;
-            if (cantorival == Accion.envido && tantos > 30) accion = Accion.realenvido;
+            if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.noquiero_tanto) && tantos <= 25) accion = Accion.noquiero_tanto;
+            if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 26 && tantos <= 28) accion = Accion.quiero_tanto;
+            if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.envidoenvido) && (tantos == 29 || tantos == 30)) accion = Accion.envidoenvido;
+            if (cantorival == Accion.envido && param.AccionesDisponibles.Contains(Accion.realenvido) && tantos > 30) accion = Accion.realenvido;
 
-            if (cantorival == Accion.realenvido && tantos >= 25 && tantos >= 28) accion = Accion.quiero_tanto;
-            if (cantorival == Accion.realenvido && tantos >= 19) accion = Accion.quiero_tanto;
+            if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.noquiero_tanto) && tantos >= 25 && tantos <= 28) accion = Accion.noquiero_tanto;
+            if (cantorival == Accion.realenvido && param.AccionesDisponibles.Contains(Accion.quiero_tanto) && tantos >= 29) accion = Accion.quiero_tanto;
 
-            if (cantorival == Accion.faltaenvido) accion = Accion.noquiero_tanto;
+            if (cantorival == Accion.faltaenvido && param.AccionesDisponibles.Contains(Accion.noquiero_tanto))
+            {
+                accion = Accion.noquiero_tanto;
+            }
 
             //if (cantorival == Accion.envidoenvido && tantos > 28) accion = Accion.quiero_tanto;
             //if (cantorival == Accion.envidorealenvido && tantos > 29) accion = Accion.quiero_tanto;
