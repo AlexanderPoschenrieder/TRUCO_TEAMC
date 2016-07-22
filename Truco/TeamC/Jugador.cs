@@ -237,7 +237,7 @@ namespace Truco
 
         private bool TengoUnSiete(MisCartas misCartas)
         {
-            return TengoElAnchoDeEspada(misCartas) || TengoElSieteDeOro(misCartas);
+            return TengoElSieteDeEspadas(misCartas) || TengoElSieteDeOro(misCartas);
         }
 
         private bool TengoElAnchoDeEspada(MisCartas misCartas)
