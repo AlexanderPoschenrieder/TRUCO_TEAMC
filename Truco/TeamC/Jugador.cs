@@ -62,5 +62,99 @@ namespace Truco
 
             return accion;
         }
+
+          public override Carta JugarUnaCarta(Param param)
+        {
+            Carta carta = null;
+
+            if (SoyManoDeEstaMano(param) && param.juego.manoNumero == 1)
+            {
+                if (TengoUnSiete(param.misCartas)) {
+                    //if(TengoUnAncho(param.misCartas) && )
+
+                    if (TengoUnTres(param.misCartas)) {
+                        carta = param.misCartas.manos.Where(c => !c.yajugada && c.carta.nro == 3).FirstOrDefault().carta;
+                    }
+
+                    if (TengoUnDos(param.misCartas)) { 
+                    
+                    }
+                }
+
+                
+            }
+
+            //// busco el ranking de la ultima carta jugada por mi rival
+            //int rankingcartarival = (from j in param.juego.logCartas
+            //                         where j.jugadorid == param.rival.id
+            //                         select j.carta.ranking).LastOrDefault();
+
+
+            //if (!SoyManoDeEstaMano(param)) // mi rival ya jugo, trato de ganar esta mano
+            //{
+            //    carta = ObtenerCartaPrimeraGanaRival(param.misCartas, rankingcartarival);
+            //    if (carta == null) carta = ObtenerCartaMasBaja(param.misCartas);
+            //}
+            //else
+            ////arranco jugando yo la mano y pongo una carta cualquiera
+            //{
+            //    carta = ObtenerCartaRandom(param.misCartas);
+            //}
+
+            return carta;
+        }
+
+
+        private bool NoTengoNada(MisCartas misCartas)
+        {
+            return !TengoUnTres(misCartas) && !TengoUnDos(misCartas) && !TengoUnSiete(misCartas) && TengoUnAncho(misCartas);
+        }
+
+        private bool TengoCartaN(MisCartas misCartas, int n)
+        {
+            return misCartas.manos.Any(c => !c.yajugada && c.carta.nro == n);
+        }
+
+        private bool TengoUnTres(MisCartas misCartas)
+        {
+            return TengoCartaN(misCartas, 3);
+        }
+
+        private bool TengoUnDos(MisCartas misCartas)
+        {
+            return TengoCartaN(misCartas, 2);
+        }
+
+        private bool TengoUnSiete(MisCartas misCartas)
+        {
+            return TengoElAnchoDeEspada(misCartas) || TengoElSieteDeOro(misCartas);
+        }
+
+        private bool TengoElAnchoDeEspada(MisCartas misCartas)
+        {
+            return misCartas.manos.Any(c => !c.yajugada && c.carta.nro == 1 && c.carta.palo == 'E');
+        }
+
+        private bool TengoElAnchoDeBasto(MisCartas misCartas)
+        {
+            return misCartas.manos.Any(c => !c.yajugada && c.carta.nro == 1 && c.carta.palo == 'B');
+        }
+
+        private bool TengoUnAncho(MisCartas misCartas)
+        {
+            return TengoElAnchoDeBasto(misCartas) || TengoElAnchoDeEspada(misCartas);
+        }
+
+        private bool TengoElSieteDeEspadas(MisCartas misCartas)
+        {
+            return misCartas.manos.Any(c => !c.yajugada && c.carta.nro == 7 && c.carta.palo == 'E');
+        }
+
+        private bool TengoElSieteDeOro(MisCartas misCartas)
+        {
+            return misCartas.manos.Any(c => !c.yajugada && c.carta.nro == 7 && c.carta.palo == 'O');
+        }
+
+        
     }
 }
